@@ -17,8 +17,8 @@ public class Post implements Serializable {
 
     protected Post() {}
 
-    public Post(int id, String text, Integer likes, Date creationDate) {
-        this.id = (long) id;
+    public Post(Long id, String text, Integer likes, Date creationDate) {
+        this.id = id;
         this.text = text;
         this.likes = likes;
         this.creationDate = creationDate;
