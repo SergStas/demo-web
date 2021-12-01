@@ -10,9 +10,13 @@ public class LikesService {
     @Autowired
     PostsRepository postsRepository;
 
-    public int likes(Number postId)
+    public LikesService(PostsRepository postsRepository) {
+        this.postsRepository = postsRepository;
+    }
+
+    public int likes(Long postId)
     {
-        Post post = postsRepository.findById(postId.longValue()).get();
+        Post post = postsRepository.findById(postId).get();
         post.setLikes(post.getLikes() + 1);
         postsRepository.save(post);
         return post.getLikes();
